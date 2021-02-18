@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv 
 
 load_dotenv() # this one happens to read env vars from the ".env" file (read README.md)
-tax_rate = float(os.getenv("tax_rate", default=8.75))/100 # uses the os module to read the specified environment variable and store it in a corresponding python variable
+sales_tax_rate = os.getenv("tax_rate", default=8.75) # uses the os module to read the specified environment variable and store it in a corresponding python variable
 
 # import a module to print the date and time on the receipt
 from datetime import datetime
@@ -100,11 +100,12 @@ subtotal = 0
 for item in my_cart:
     subtotal = subtotal + item["price"]
 
+tax_rate = float(sales_tax_rate)/100
 tax = subtotal * tax_rate
 total = subtotal + tax
 
 print("SUBTOTAL:", to_usd(subtotal))
-print(f"TAX: {to_usd(tax)} (sales tax rate: {tax_rate*100}%)")
+print(f"TAX: {to_usd(tax)} (sales tax rate: {sales_tax_rate}%)")
 print("TOTAL:", to_usd(total))
 print("---------------------------------")
 
