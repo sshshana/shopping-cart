@@ -1,6 +1,16 @@
 # shopping_cart.py
 
-from datetime import datetime # import a module to print the date and time on the receipt
+# Import all the modules and third-party packages that contain the functionality we need:
+# We want to allow users choose their own tax rate by creating a separate virtual environment
+
+import os
+from dotenv import load_dotenv 
+
+load_dotenv() # this one happens to read env vars from the ".env" file (read README.md)
+tax_rate = float(os.getenv("tax_rate", default=8.75))/100 # uses the os module to read the specified environment variable and store it in a corresponding python variable
+
+# import a module to print the date and time on the receipt
+from datetime import datetime
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -85,11 +95,11 @@ subtotal = 0
 for item in my_cart:
     subtotal = subtotal + item["price"]
 
-tax = subtotal * 0.0875
+tax = subtotal * tax_rate
 total = subtotal + tax
 
 print("SUBTOTAL:", to_usd(subtotal))
-print("TAX:", to_usd(tax))
+print(f"TAX: {to_usd(tax)} (sales tax rate: {tax_rate*100}%)")
 print("TOTAL:", to_usd(total))
 print("---------------------------------")
 

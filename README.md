@@ -18,21 +18,31 @@ Then navigate into the project repository:
 cd ~/Desktop/shopping-cart
 ```
 
-## Environment set up
-
-It is possible to complete this project using the "base" Anaconda environment, because the basic requirements don't require any third-party packages. However if you eventually end up tackling bonus challenges that require third-party packages, then you'll want to create and activate a new Anaconda virtual environment, and use a "requirements.txt" file approach to installing your packages:
+Use Anaconda to create and activate a new virtual environment, perhaps called "shopping-env":
 
 ```sh
-# IF USING THIRD-PARTY PACKAGES, USE A NEW ENV:
 conda create -n shopping-env python=3.8 
 conda activate shopping-env
-pip install -r requirements.txt # the requirements.txt should have packages you want to install
+```
+In your new virtual environment, install package dependencies:
+
+```sh
+pip install -r requirements.txt
 ```
 
-Use Anaconda to create and activate a new virtual environment, perhaps called "shopping-env" in order to utilize the third-party packages:
-###### specify the third-party packages / features the user can activate
-
 > NOTE: if this command throws an error like "Could not open requirements file: [Errno 2] No such file or directory", make sure you are running it from the repository's root directory, where the requirements.txt file exists (see the initial `cd` step above)
+
+## Setup
+
+In your project repository, create a new file called ".env", and update the contents of the ".env" file to specify your city's tax rate. Please see the exmaple below (which assumes the tax rate is 8.75%):
+
+```sh
+tax_rate=8.75
+```
+> NOTE: Do not include percentage sign (%) in the code
+> NOTE: If you don't customize your tax rate, it will be use New York City's sales tax rate of 8.75%
+
+
 
 ## Usage
 
