@@ -49,9 +49,11 @@ def scanning():
     # input the identifier of each shopping cart item
     scanned_item = input(f"Please input a product identifier.")
     if scanned_item == "DONE":
+        # complete the check out and display store info
         print("---------------------------------")
         print("MAGNIFICENT GROCERY")
         print("WWW.MAGNIFICENTGROCERY.COM")
+        print("PHONE: 123-214-0818")
         print("---------------------------------")
     else:
         # validate the input
