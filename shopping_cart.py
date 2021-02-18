@@ -1,5 +1,7 @@
 # shopping_cart.py
 
+from datetime import datetime # import a module to print the date and time on the receipt
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -37,6 +39,58 @@ def to_usd(my_price):
     return f"${my_price:,.2f}" #> $12,000.71
 
 
-# TODO: write some Python code here to produce the desired output
+print("-------------------")
+print("Let's scan some items. Once you finish scanning, please enter DONE.")
+print("-------------------")
 
-print(products)
+my_cart = [] # scanned items will be stored in this list variable
+
+def scanning():
+    # input the identifier of each shopping cart item
+    scanned_item = input(f"Please input a product identifier.")
+    if scanned_item == "DONE":
+        print("---------------------------------")
+        print("MAGNIFICENT GROCERY")
+        print("WWW.MAGNIFICENTGROCERY.COM")
+        print("---------------------------------")
+    else:
+        # validate the input
+        matching_item = [ item for item in products if str(item["id"]) == scanned_item ]
+        if len(matching_item) == 0: # if there is nothing that matches with the selected id, print the error message
+            print("Hey, are you sure that product identifier is correct? Please try again!")
+        else:
+            my_cart.append(matching_item[0])
+            matching_item = [] # initialize the variable
+        
+        scanning() # loop the process
+
+scanning()
+
+# print the date
+print("CHECKOUT AT:", datetime.now().strftime("%b %d, %Y %H:%M:%S"))
+print("---------------------------------")
+
+# print the scanned items
+print("SELECTED PRODUCTS:")
+
+for item in my_cart:
+    print("+ ", item["name"], "(", to_usd(item["price"]), ")")
+
+print("---------------------------------")
+
+# calculate and print the subtotal, tax, and total
+subtotal = 0
+for item in my_cart:
+    subtotal = subtotal + item["price"]
+
+tax = subtotal * 0.0875
+total = subtotal + tax
+
+print("SUBTOTAL:", to_usd(subtotal))
+print("TAX:", to_usd(tax))
+print("TOTAL:", to_usd(total))
+print("---------------------------------")
+
+# thank you message
+print("THANKS, SEE YOU AGAIN SOON!")
+print("---------------------------------")
