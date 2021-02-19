@@ -1,1 +1,2 @@
 python-dotenv # see: https://github.com/theskumar/python-dotenv
+sendgrid # see: https://github.com/prof-rossetti/intro-to-python/blob/master/notes/python/packages/sendgrid.md

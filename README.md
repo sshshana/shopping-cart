@@ -34,14 +34,13 @@ pip install -r requirements.txt
 
 ## Setup
 
-In your project repository, create a new file called ".env", and update the contents of the ".env" file to specify your city's sales tax rate. Please see the exmaple below (which assumes the tax rate is 8.75%):
+In your project repository, update sales_tax_rate variable in the ".env" file according to your city's sales tax rate. Please see the exmaple below (which assumes the tax rate is 8.75%):
 
 ```sh
 sales_tax_rate=8.75
 ```
 > NOTE: Do not include percentage sign (%) in the code
 > NOTE: If you don't customize your tax rate, it will be use New York City's sales tax rate of 8.75%
-
 
 
 ## Usage
