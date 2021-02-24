@@ -50,4 +50,14 @@ Run the program and follow the instructions the system prompts:
 python shopping-cart.py
 ```
 
+Here are some important tips that will help you use this program effectively:
+
+ + Please verify that you enter the correct identifier of the product you want to scan.
+
+ + Enter `DONE` once you complete scanning all the products you have. Then the program will proceed to checkout.
+ 
+ + If you want to send a copy of the receipt to a customer's email, enter `y` after the checkout. Then input the customer's email address as the program prompts.
+
+
+
 > NOTE: if you see an error like "ModuleNotFoundError: No module named '...'", it's because the given package isn't installed, so run the `pip` command above to ensure that package has been installed into the virtual environment
