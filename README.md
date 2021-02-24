@@ -54,6 +54,8 @@ Here are some important tips that will help you use this program effectively:
 
  + Please verify that you enter the correct identifier of the product you want to scan.
 
+ + If the item is priced by pound, the program will ask you to enter the pound of the product. Please follow the instructions.
+
  + Enter `DONE` once you complete scanning all the products you have. Then the program will proceed to checkout.
  
  + If you want to send a copy of the receipt to a customer's email, enter `y` after the checkout. Then input the customer's email address as the program prompts.
